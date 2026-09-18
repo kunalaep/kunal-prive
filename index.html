@@ -39,7 +39,10 @@ a{
   color:inherit
 }
 
-button,input,select,textarea{
+button,
+input,
+select,
+textarea{
   font:inherit
 }
 
@@ -684,7 +687,7 @@ footer{
   </div>
 
 
-  <div class="chips" id="quickChips">
+  <div class="chips">
 
     <button
       type="button"
@@ -720,8 +723,6 @@ footer{
 
   <div class="booking">
 
-
-    <!-- FORM -->
 
     <form
       class="form"
@@ -901,12 +902,12 @@ footer{
       </div>
 
 
-      <!-- These hidden fields create a clean email -->
+      <!-- Formspree email settings -->
 
       <input
         type="hidden"
         name="_subject"
-        value="New Booking — Kunal Privé"
+        value="✨ New Kunal Privé Booking"
       >
 
       <input
@@ -940,8 +941,6 @@ footer{
     </form>
 
 
-    <!-- PRICE SUMMARY -->
-
     <aside class="summary">
 
       <div class="eyebrow">
@@ -959,41 +958,18 @@ footer{
       <div class="breakdown">
 
         <div class="row">
-
-          <span>
-            Experience
-          </span>
-
-          <strong id="expCost">
-            ₹1,000
-          </strong>
-
+          <span>Experience</span>
+          <strong id="expCost">₹1,000</strong>
         </div>
 
-
         <div class="row">
-
-          <span>
-            Location
-          </span>
-
-          <strong id="locCost">
-            ₹200
-          </strong>
-
+          <span>Location</span>
+          <strong id="locCost">₹200</strong>
         </div>
 
-
         <div class="row">
-
-          <span>
-            Total
-          </span>
-
-          <strong id="total2">
-            ₹1,200
-          </strong>
-
+          <span>Total</span>
+          <strong id="total2">₹1,200</strong>
         </div>
 
       </div>
@@ -1181,10 +1157,8 @@ document
 
 
 /*
-  FORM SUBMISSION
-
-  We do NOT use preventDefault().
-  The browser submits directly to Formspree.
+  Create a neat booking summary for the email.
+  Formspree receives this as one organized field.
 */
 
 form.addEventListener(
@@ -1203,25 +1177,37 @@ form.addEventListener(
 
 
     const name =
-      document.getElementById('name').value.trim();
+      document.getElementById('name')
+      .value
+      .trim();
 
     const phone =
-      document.getElementById('phone').value.trim();
+      document.getElementById('phone')
+      .value
+      .trim();
 
     const email =
-      document.getElementById('email').value.trim();
+      document.getElementById('email')
+      .value
+      .trim();
 
     const date =
-      document.getElementById('date').value;
+      document.getElementById('date')
+      .value;
 
     const time =
-      document.getElementById('time').value;
+      document.getElementById('time')
+      .value;
 
     const place =
-      document.getElementById('place').value.trim();
+      document.getElementById('place')
+      .value
+      .trim();
 
     const notes =
-      document.getElementById('notes').value.trim();
+      document.getElementById('notes')
+      .value
+      .trim();
 
     const experience =
       exp.options[
@@ -1243,20 +1229,16 @@ form.addEventListener(
       experienceCost + locationCost;
 
 
-    /*
-      Clean booking email body.
-      Formspree will receive this as
-      one neatly formatted booking_summary.
-    */
-
     const summary = `
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-KUNAL PRIVÉ
-NEW BOOKING REQUEST
+              KUNAL PRIVÉ
+          NEW BOOKING REQUEST
 
-────────────────────────────
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-CUSTOMER DETAILS
+
+CUSTOMER
 
 Name
 ${name}
@@ -1268,7 +1250,7 @@ Email
 ${email || 'Not provided'}
 
 
-APPOINTMENT DETAILS
+APPOINTMENT
 
 Date
 ${date}
@@ -1286,25 +1268,29 @@ Destination
 ${place}
 
 
-ADDITIONAL NOTES
+NOTES
 
 ${notes || 'No additional notes'}
 
 
 ESTIMATED CHARGE
 
-Experience: ${money(experienceCost)}
-Location: ${money(locationCost)}
-Total: ${money(finalTotal)}
+Experience       ${money(experienceCost)}
+Location         ${money(locationCost)}
+────────────────────────────────
+TOTAL            ${money(finalTotal)}
 
-────────────────────────────
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Kunal Privé
 Personal Outing Appointment Service
 
-This booking is a request and is not confirmed
-until Kunal responds.
+This is a booking request.
+The appointment is confirmed only after
+Kunal responds.
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 `;
 
 
