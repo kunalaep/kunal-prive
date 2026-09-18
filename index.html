@@ -19,6 +19,10 @@
 
 *{box-sizing:border-box}
 
+html{
+  scroll-behavior:smooth
+}
+
 body{
   margin:0;
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
@@ -30,7 +34,14 @@ body{
   line-height:1.5
 }
 
-a{text-decoration:none;color:inherit}
+a{
+  text-decoration:none;
+  color:inherit
+}
+
+button,input,select,textarea{
+  font:inherit
+}
 
 .nav{
   max-width:1180px;
@@ -47,7 +58,9 @@ a{text-decoration:none;color:inherit}
   letter-spacing:-.04em
 }
 
-.logo span{color:var(--accent)}
+.logo span{
+  color:var(--accent)
+}
 
 .navlinks{
   display:flex;
@@ -56,12 +69,21 @@ a{text-decoration:none;color:inherit}
   font-size:14px
 }
 
+.navlinks a:hover{
+  color:var(--ink)
+}
+
 .btn{
   border:0;
   border-radius:14px;
   padding:13px 18px;
   font-weight:800;
-  cursor:pointer
+  cursor:pointer;
+  transition:.2s ease
+}
+
+.btn:hover{
+  transform:translateY(-2px)
 }
 
 .btn.primary{
@@ -149,7 +171,9 @@ h1{
   font-size:18px
 }
 
-.mini small{color:#c8ceda}
+.mini small{
+  color:#c8ceda
+}
 
 section{
   max-width:1180px;
@@ -187,12 +211,22 @@ section{
   border:1px solid var(--line);
   border-radius:26px;
   padding:23px;
-  box-shadow:0 8px 30px rgba(35,25,15,.04)
+  box-shadow:0 8px 30px rgba(35,25,15,.04);
+  transition:.2s ease
 }
 
-.icon{font-size:28px}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow)
+}
 
-.card h3{margin:12px 0 6px}
+.icon{
+  font-size:28px
+}
+
+.card h3{
+  margin:12px 0 6px
+}
 
 .card p{
   color:var(--muted);
@@ -218,7 +252,8 @@ section{
   align-items:start
 }
 
-.form,.summary{
+.form,
+.summary{
   background:white;
   border:1px solid var(--line);
   border-radius:26px;
@@ -242,21 +277,33 @@ section{
   gap:7px
 }
 
-.field.full{grid-column:1/-1}
+.field.full{
+  grid-column:1/-1
+}
 
 label{
   font-size:13px;
   font-weight:800
 }
 
-input,select,textarea{
+input,
+select,
+textarea{
   width:100%;
   padding:13px 14px;
   border:1px solid #ddd4cc;
   border-radius:12px;
   background:#fff;
-  font:inherit;
-  color:var(--ink)
+  color:var(--ink);
+  outline:none;
+  transition:.2s ease
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(183,110,121,.10)
 }
 
 textarea{
@@ -283,6 +330,10 @@ textarea{
   justify-content:space-between;
   gap:12px;
   margin:8px 0
+}
+
+.row strong{
+  color:var(--ink)
 }
 
 .note{
@@ -313,7 +364,12 @@ footer{
   padding:9px 13px;
   font-size:13px;
   font-weight:800;
-  cursor:pointer
+  cursor:pointer;
+  transition:.2s ease
+}
+
+.chip:hover{
+  transform:translateY(-1px)
 }
 
 .chip.active{
@@ -349,14 +405,36 @@ footer{
   font-weight:700
 }
 
-.toast.show{display:block}
+.toast.show{
+  display:block
+}
 
 @media(max-width:820px){
-  .hero,.booking{grid-template-columns:1fr}
-  .cards{grid-template-columns:1fr}
-  .navlinks{display:none}
-  .summary{position:static}
-  .grid{grid-template-columns:1fr}
+
+  .hero,
+  .booking{
+    grid-template-columns:1fr
+  }
+
+  .cards{
+    grid-template-columns:1fr
+  }
+
+  .navlinks{
+    display:none
+  }
+
+  .summary{
+    position:static
+  }
+
+  .grid{
+    grid-template-columns:1fr
+  }
+
+  .field.full{
+    grid-column:auto
+  }
 }
 </style>
 </head>
@@ -364,7 +442,10 @@ footer{
 <body>
 
 <header class="nav">
-  <div class="logo">Kunal<span>Privé</span></div>
+
+  <div class="logo">
+    Kunal<span>Privé</span>
+  </div>
 
   <nav class="navlinks">
     <a href="#experiences">Experiences</a>
@@ -372,14 +453,22 @@ footer{
     <a href="#book">Book</a>
   </nav>
 
-  <a class="btn primary" href="#book">Book with Kunal</a>
+  <a class="btn primary" href="#book">
+    Book with Kunal
+  </a>
+
 </header>
+
 
 <main>
 
 <section class="hero">
+
   <div>
-    <div class="eyebrow">Personal appointment & outing service</div>
+
+    <div class="eyebrow">
+      Personal appointment & outing service
+    </div>
 
     <h1>
       Your plan.<br>
@@ -394,15 +483,29 @@ footer{
     </p>
 
     <div class="hero-actions">
-      <a class="btn accent" href="#book">Book with Kunal</a>
-      <a class="btn" style="background:white;border:1px solid var(--line)" href="#pricing">
+
+      <a class="btn accent" href="#book">
+        Book with Kunal
+      </a>
+
+      <a
+        class="btn"
+        style="background:white;border:1px solid var(--line)"
+        href="#pricing"
+      >
         See location charges
       </a>
+
     </div>
+
   </div>
 
+
   <div class="hero-card">
-    <div class="eyebrow" style="color:#f1c8a0">How it works</div>
+
+    <div class="eyebrow" style="color:#f1c8a0">
+      How it works
+    </div>
 
     <h2 style="font-size:35px;line-height:1.05;margin:12px 0">
       Pick a place. Pick a time. Make a plan.
@@ -422,117 +525,203 @@ footer{
       <strong>03 · Send the request</strong>
       <small>Your booking request is ready to confirm.</small>
     </div>
+
   </div>
+
 </section>
 
+
 <section id="experiences">
+
   <div class="section-head">
+
     <div>
       <h2>Outing options</h2>
       <p>Simple packages you can customize.</p>
     </div>
+
   </div>
+
 
   <div class="cards">
 
     <div class="card">
+
       <div class="icon">☕</div>
+
       <h3>Cafe date</h3>
-      <p>Coffee, dessert and conversation at your chosen cafe.</p>
+
+      <p>
+        Coffee, dessert and conversation at your chosen cafe.
+      </p>
+
       <div class="price">
-        ₹1,000 <span>base service fee</span>
+        ₹1,000
+        <span>base service fee</span>
       </div>
+
     </div>
 
+
     <div class="card">
+
       <div class="icon">🍽️</div>
+
       <h3>Restaurant</h3>
-      <p>Join you for lunch or dinner at a restaurant of your choice.</p>
+
+      <p>
+        Join you for lunch or dinner at a restaurant of your choice.
+      </p>
+
       <div class="price">
-        ₹1,500 <span>base service fee</span>
+        ₹1,500
+        <span>base service fee</span>
       </div>
+
     </div>
 
+
     <div class="card">
+
       <div class="icon">🎬</div>
+
       <h3>Other outing</h3>
-      <p>Movies, shopping, walks, events or a custom outing plan.</p>
+
+      <p>
+        Movies, shopping, walks, events or a custom outing plan.
+      </p>
+
       <div class="price">
-        ₹1,200 <span>base service fee</span>
+        ₹1,200
+        <span>base service fee</span>
       </div>
+
     </div>
 
   </div>
+
 </section>
+
 
 <section id="pricing">
 
   <div class="section-head">
+
     <div>
       <h2>Location charges</h2>
       <p>Premium sample pricing — adjust the rates to match your service.</p>
     </div>
+
   </div>
+
 
   <div class="cards">
 
     <div class="card">
+
       <h3>Local</h3>
-      <p>Within your normal service area.</p>
+
+      <p>
+        Within your normal service area.
+      </p>
+
       <div class="price">
-        ₹200 <span>travel charge</span>
+        ₹200
+        <span>travel charge</span>
       </div>
+
     </div>
 
+
     <div class="card">
+
       <h3>Nearby</h3>
-      <p>Outside the local area, within a short trip.</p>
+
+      <p>
+        Outside the local area, within a short trip.
+      </p>
+
       <div class="price">
-        ₹500 <span>travel charge</span>
+        ₹500
+        <span>travel charge</span>
       </div>
+
     </div>
 
+
     <div class="card">
+
       <h3>Out of town</h3>
-      <p>Long-distance outings requiring additional travel.</p>
+
+      <p>
+        Long-distance outings requiring additional travel.
+      </p>
+
       <div class="price">
-        ₹1,500+ <span>travel charge</span>
+        ₹1,500+
+        <span>travel charge</span>
       </div>
+
     </div>
 
   </div>
+
 </section>
+
 
 <section id="book">
 
   <div class="section-head">
+
     <div>
       <h2>Request a booking</h2>
+
       <p>
         Submit your details and receive a confirmation before the appointment is final.
       </p>
     </div>
+
   </div>
 
+
   <div class="chips" id="quickChips">
-    <button type="button" class="chip active" data-exp="1000">
+
+    <button
+      type="button"
+      class="chip active"
+      data-exp="1000"
+    >
       ☕ Cafe
     </button>
 
-    <button type="button" class="chip" data-exp="1500">
+    <button
+      type="button"
+      class="chip"
+      data-exp="1500"
+    >
       🍽️ Restaurant
     </button>
 
-    <button type="button" class="chip" data-exp="1200">
+    <button
+      type="button"
+      class="chip"
+      data-exp="1200"
+    >
       ✨ Custom outing
     </button>
+
   </div>
+
 
   <div class="progress">
     <i id="progressBar"></i>
   </div>
 
+
   <div class="booking">
+
+
+    <!-- FORM -->
 
     <form
       class="form"
@@ -543,18 +732,30 @@ footer{
 
       <div class="grid">
 
+
         <div class="field">
-          <label for="name">Name</label>
+
+          <label for="name">
+            Name
+          </label>
+
           <input
             id="name"
             name="name"
+            type="text"
             required
             placeholder="Your name"
           >
+
         </div>
 
+
         <div class="field">
-          <label for="phone">Phone / WhatsApp</label>
+
+          <label for="phone">
+            Phone / WhatsApp
+          </label>
+
           <input
             id="phone"
             name="phone"
@@ -562,89 +763,158 @@ footer{
             required
             placeholder="+91 ..."
           >
+
         </div>
 
+
         <div class="field">
-          <label for="email">Email</label>
+
+          <label for="email">
+            Email
+          </label>
+
           <input
             id="email"
             name="email"
             type="email"
             placeholder="your@email.com"
           >
+
         </div>
 
+
         <div class="field">
-          <label for="date">Date</label>
+
+          <label for="date">
+            Date
+          </label>
+
           <input
             id="date"
             name="date"
             type="date"
             required
           >
+
         </div>
 
+
         <div class="field">
-          <label for="time">Time</label>
+
+          <label for="time">
+            Time
+          </label>
+
           <input
             id="time"
             name="time"
             type="time"
             required
           >
+
         </div>
 
-        <div class="field">
-          <label for="experience">Experience</label>
-          <select id="experience" name="experience">
-            <option value="1000">Cafe — ₹1,000</option>
-            <option value="1500">Restaurant — ₹1,500</option>
-            <option value="1200">Other outing — ₹1,200</option>
-          </select>
-        </div>
 
         <div class="field">
-          <label for="location">Location tier</label>
-          <select id="location" name="location">
-            <option value="200">Local — ₹200</option>
-            <option value="500">Nearby — ₹500</option>
-            <option value="1500">Out of town — ₹1,500+</option>
+
+          <label for="experience">
+            Experience
+          </label>
+
+          <select
+            id="experience"
+            name="experience"
+          >
+            <option value="1000">
+              Cafe — ₹1,000
+            </option>
+
+            <option value="1500">
+              Restaurant — ₹1,500
+            </option>
+
+            <option value="1200">
+              Other outing — ₹1,200
+            </option>
           </select>
+
         </div>
+
+
+        <div class="field">
+
+          <label for="location">
+            Location tier
+          </label>
+
+          <select
+            id="location"
+            name="location"
+          >
+            <option value="200">
+              Local — ₹200
+            </option>
+
+            <option value="500">
+              Nearby — ₹500
+            </option>
+
+            <option value="1500">
+              Out of town — ₹1,500+
+            </option>
+          </select>
+
+        </div>
+
 
         <div class="field full">
-          <label for="place">Place / destination</label>
+
+          <label for="place">
+            Place / destination
+          </label>
+
           <input
             id="place"
             name="place"
+            type="text"
             required
             placeholder="Cafe, restaurant, mall, cinema, park, etc."
           >
+
         </div>
 
+
         <div class="field full">
-          <label for="notes">Notes</label>
+
+          <label for="notes">
+            Notes
+          </label>
+
           <textarea
             id="notes"
             name="notes"
             placeholder="Anything I should know about the outing?"
           ></textarea>
+
         </div>
 
       </div>
 
-      <input
-        type="hidden"
-        id="estimatedCharge"
-        name="estimated_charge"
-        value="₹1,200"
-      >
+
+      <!-- These hidden fields create a clean email -->
 
       <input
         type="hidden"
         name="_subject"
-        value="New Kunal Privé Booking Request"
+        value="New Booking — Kunal Privé"
       >
+
+      <input
+        type="hidden"
+        name="booking_summary"
+        id="bookingSummary"
+      >
+
 
       <button
         class="btn accent"
@@ -654,10 +924,12 @@ footer{
         Send booking request
       </button>
 
+
       <div class="note">
         Your booking request will be sent securely through Formspree.
         The appointment is confirmed only after Kunal responds.
       </div>
+
 
       <div
         class="toast"
@@ -667,30 +939,65 @@ footer{
 
     </form>
 
+
+    <!-- PRICE SUMMARY -->
+
     <aside class="summary">
 
-      <div class="eyebrow">Estimated charge</div>
+      <div class="eyebrow">
+        Estimated charge
+      </div>
 
-      <div class="total" id="total">₹1,200</div>
+      <div
+        class="total"
+        id="total"
+      >
+        ₹1,200
+      </div>
+
 
       <div class="breakdown">
 
         <div class="row">
-          <span>Experience</span>
-          <strong id="expCost">₹1,000</strong>
+
+          <span>
+            Experience
+          </span>
+
+          <strong id="expCost">
+            ₹1,000
+          </strong>
+
         </div>
 
-        <div class="row">
-          <span>Location</span>
-          <strong id="locCost">₹200</strong>
-        </div>
 
         <div class="row">
-          <span>Total</span>
-          <strong id="total2">₹1,200</strong>
+
+          <span>
+            Location
+          </span>
+
+          <strong id="locCost">
+            ₹200
+          </strong>
+
+        </div>
+
+
+        <div class="row">
+
+          <span>
+            Total
+          </span>
+
+          <strong id="total2">
+            ₹1,200
+          </strong>
+
         </div>
 
       </div>
+
 
       <p class="note">
         Final pricing can be confirmed before the appointment.
@@ -699,64 +1006,120 @@ footer{
     </aside>
 
   </div>
+
 </section>
 
 </main>
+
 
 <footer>
   © 2026 Kunal Privé · Personal outing appointment service · Built as a responsive starter site.
 </footer>
 
+
 <script>
-const form = document.getElementById('bookingForm');
-const exp = document.getElementById('experience');
-const loc = document.getElementById('location');
-const total = document.getElementById('total');
-const total2 = document.getElementById('total2');
-const expCost = document.getElementById('expCost');
-const locCost = document.getElementById('locCost');
-const estimatedCharge = document.getElementById('estimatedCharge');
+
+const form =
+  document.getElementById('bookingForm');
+
+const exp =
+  document.getElementById('experience');
+
+const loc =
+  document.getElementById('location');
+
+const total =
+  document.getElementById('total');
+
+const total2 =
+  document.getElementById('total2');
+
+const expCost =
+  document.getElementById('expCost');
+
+const locCost =
+  document.getElementById('locCost');
+
+const bookingSummary =
+  document.getElementById('bookingSummary');
+
 
 function money(n){
-  return '₹' + Number(n).toLocaleString('en-IN');
+
+  return '₹' +
+    Number(n).toLocaleString('en-IN');
+
 }
+
 
 function update(){
 
-  const experienceCost = Number(exp.value);
-  const locationCost = Number(loc.value);
-  const finalTotal = experienceCost + locationCost;
+  const experienceCost =
+    Number(exp.value);
 
-  expCost.textContent = money(experienceCost);
-  locCost.textContent = money(locationCost);
-  total.textContent = money(finalTotal);
-  total2.textContent = money(finalTotal);
+  const locationCost =
+    Number(loc.value);
 
-  estimatedCharge.value = money(finalTotal);
+  const finalTotal =
+    experienceCost + locationCost;
+
+
+  expCost.textContent =
+    money(experienceCost);
+
+  locCost.textContent =
+    money(locationCost);
+
+  total.textContent =
+    money(finalTotal);
+
+  total2.textContent =
+    money(finalTotal);
+
 }
 
-exp.addEventListener('change', update);
-loc.addEventListener('change', update);
+
+exp.addEventListener(
+  'change',
+  update
+);
+
+
+loc.addEventListener(
+  'change',
+  update
+);
+
 
 document.getElementById('date').min =
   new Date().toISOString().split('T')[0];
 
-document.querySelectorAll('.chip').forEach(chip => {
 
-  chip.addEventListener('click', () => {
+document.querySelectorAll('.chip')
+.forEach(chip => {
 
-    document
-      .querySelectorAll('.chip')
-      .forEach(c => c.classList.remove('active'));
+  chip.addEventListener(
+    'click',
+    () => {
 
-    chip.classList.add('active');
+      document
+        .querySelectorAll('.chip')
+        .forEach(c =>
+          c.classList.remove('active')
+        );
 
-    exp.value = chip.dataset.exp;
+      chip.classList.add('active');
 
-    update();
-  });
+      exp.value =
+        chip.dataset.exp;
+
+      update();
+
+    }
+  );
 
 });
+
 
 function progress(){
 
@@ -769,63 +1132,201 @@ function progress(){
     'place'
   ];
 
-  const done = ids.filter(id => {
 
-    const element = document.getElementById(id);
+  const done =
+    ids.filter(id => {
 
-    return element.value.trim() !== '';
+      const element =
+        document.getElementById(id);
 
-  }).length;
+      return element.value.trim() !== '';
 
-  const percentage = Math.max(
-    25,
-    done / ids.length * 100
-  );
+    }).length;
 
-  document.getElementById('progressBar').style.width =
+
+  const percentage =
+    Math.max(
+      25,
+      done / ids.length * 100
+    );
+
+
+  document.getElementById(
+    'progressBar'
+  ).style.width =
     percentage + '%';
+
 }
 
+
 document
-  .querySelectorAll('#bookingForm input, #bookingForm textarea, #bookingForm select')
+  .querySelectorAll(
+    '#bookingForm input,' +
+    '#bookingForm textarea,' +
+    '#bookingForm select'
+  )
   .forEach(el => {
 
-    el.addEventListener('input', progress);
-    el.addEventListener('change', progress);
+    el.addEventListener(
+      'input',
+      progress
+    );
+
+    el.addEventListener(
+      'change',
+      progress
+    );
 
   });
 
-form.addEventListener('submit', function(e){
 
-  if(!form.checkValidity()){
+/*
+  FORM SUBMISSION
 
-    e.preventDefault();
+  We do NOT use preventDefault().
+  The browser submits directly to Formspree.
+*/
 
-    form.reportValidity();
+form.addEventListener(
+  'submit',
+  function(e){
 
-    return;
+    if(!form.checkValidity()){
+
+      e.preventDefault();
+
+      form.reportValidity();
+
+      return;
+
+    }
+
+
+    const name =
+      document.getElementById('name').value.trim();
+
+    const phone =
+      document.getElementById('phone').value.trim();
+
+    const email =
+      document.getElementById('email').value.trim();
+
+    const date =
+      document.getElementById('date').value;
+
+    const time =
+      document.getElementById('time').value;
+
+    const place =
+      document.getElementById('place').value.trim();
+
+    const notes =
+      document.getElementById('notes').value.trim();
+
+    const experience =
+      exp.options[
+        exp.selectedIndex
+      ].text;
+
+    const location =
+      loc.options[
+        loc.selectedIndex
+      ].text;
+
+    const experienceCost =
+      Number(exp.value);
+
+    const locationCost =
+      Number(loc.value);
+
+    const finalTotal =
+      experienceCost + locationCost;
+
+
+    /*
+      Clean booking email body.
+      Formspree will receive this as
+      one neatly formatted booking_summary.
+    */
+
+    const summary = `
+
+KUNAL PRIVÉ
+NEW BOOKING REQUEST
+
+────────────────────────────
+
+CUSTOMER DETAILS
+
+Name
+${name}
+
+Phone / WhatsApp
+${phone}
+
+Email
+${email || 'Not provided'}
+
+
+APPOINTMENT DETAILS
+
+Date
+${date}
+
+Time
+${time}
+
+Experience
+${experience}
+
+Location
+${location}
+
+Destination
+${place}
+
+
+ADDITIONAL NOTES
+
+${notes || 'No additional notes'}
+
+
+ESTIMATED CHARGE
+
+Experience: ${money(experienceCost)}
+Location: ${money(locationCost)}
+Total: ${money(finalTotal)}
+
+────────────────────────────
+
+Kunal Privé
+Personal Outing Appointment Service
+
+This booking is a request and is not confirmed
+until Kunal responds.
+
+`;
+
+
+    bookingSummary.value =
+      summary.trim();
+
+
+    const toast =
+      document.getElementById('toast');
+
+    toast.textContent =
+      'Sending your booking request…';
+
+    toast.classList.add('show');
+
   }
+);
 
-  update();
-
-  const toast = document.getElementById('toast');
-
-  toast.textContent =
-    'Sending your booking request…';
-
-  toast.classList.add('show');
-
-  /*
-    IMPORTANT:
-    Do NOT use e.preventDefault() here.
-
-    The browser will now submit the form directly
-    to Formspree using the action URL above.
-  */
-});
 
 update();
 progress();
+
 </script>
 
 </body>
